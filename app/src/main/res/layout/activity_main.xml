@@ -28,6 +28,16 @@
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp" />
 
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:id="@+id/fragment_container"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
     <TextView
         android:id="@+id/tv_datetimeInput"
         android:layout_width="wrap_content"

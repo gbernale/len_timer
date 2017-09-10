@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -32,11 +34,12 @@ public class MainActivity extends AppCompatActivity  {
         finishDateButton = (Button) findViewById(R.id.b_pick1);
         startDateTextView = (TextView) findViewById(R.id.tv_datetimeInput);
         finishDateTextView = (TextView) findViewById(R.id.tv_datetimeOutput);
-
+        callFragmentHoursReport();
         startDateButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
               showDialog(startDateTextView, startDateTime);
+
           }
       }
 
@@ -78,6 +81,15 @@ public class MainActivity extends AppCompatActivity  {
         timePickerDialog.setOnDismissListener(timeDismissListener);
 
         datePickerDialog.show();
+    }
+
+    private void callFragmentHoursReport()
+    {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        HoursReportViewFragment hoursReportViewFragment = new HoursReportViewFragment();
+        transaction.replace(R.id.fragment_container,hoursReportViewFragment,"Insurance");
+        transaction.commit();
     }
 
 }
